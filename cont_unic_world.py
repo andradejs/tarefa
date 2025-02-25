@@ -1,3 +1,5 @@
+# Usar dict para produzir uma lista de palavras únicas, onde cada palavra é a chave do dicionário, e mostrar a quantidade de palavras únicas no console (Anotar este resultado);
+
 from extract_text import  extract
 import re
 
@@ -9,19 +11,20 @@ def palavras_unicas(arquivo):
     # palavras_unic =  set(palavras)
     palavras_unic = {}
 
-    quantidade = 0
-    for c in range(0,len(extract(arquivo))):
-        palavra = arquivo[c]
+    palavras = extract(arquivo)
+    for c in range(0,len(palavras)):
+        palavra = palavras[c]
 
         if palavra not in palavras_unic:
-            palavras_unic[palavra] = quantidade
+            palavras_unic[palavra] = 1
+        else:
+            palavras_unic[palavra] += 1
 
+    return palavras_unic
 
-
-    return len(palavras_unic)
-
-print(palavras_unicas("texto.txt"))
-
+# resultado = palavras_unicas("texto.txt")
+# print(resultado)
+# print(len(resultado))
 
 
 
